@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="scoreViewModel"
+            type="com.example.livedata.score.ScoreViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".score.ScoringFragment">
+
+
+    <TextView
+        android:id="@+id/name_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Nama Tim 1"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Nama Tim 2"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/score_2"
+        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintStart_toStartOf="@+id/score_2"
+        app:layout_constraintTop_toBottomOf="@+id/score_2" />
+
+    <TextView
+        android:id="@+id/score_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@{@string/num_format(scoreViewModel.team1Score.toString())}"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="@+id/name_1"
+        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintStart_toStartOf="@+id/name_1"
+        app:layout_constraintTop_toBottomOf="@+id/name_1" />
+
+    <TextView
+        android:id="@+id/score_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@{@string/num_format(scoreViewModel.team2Score.toString())}"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="VS"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/score_1"
+        app:layout_constraintStart_toStartOf="@+id/score_1"
+        app:layout_constraintTop_toBottomOf="@+id/score_1" />
+
+    <Button
+        android:id="@+id/tim1_btn"
+        android:onClick="@{() -> scoreViewModel.updateScore(1)}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="68dp"
+        android:text="TIM 1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_2" />
+
+    <Button
+        android:id="@+id/tim2_btn"
+        android:onClick="@{() -> scoreViewModel.updateScore(2)}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="TIM 2"
+        app:layout_constraintBottom_toBottomOf="@+id/tim1_btn"
+        app:layout_constraintStart_toEndOf="@+id/tim1_btn"
+        app:layout_constraintTop_toTopOf="@+id/tim1_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

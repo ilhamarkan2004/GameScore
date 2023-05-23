@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.example.livedata.intro.IntroFragment"
+        android:label="IntroFragment" >
+        <action
+            android:id="@+id/action_introFragment_to_scoringFragment"
+            app:destination="@id/scoringFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoringFragment"
+        android:name="com.example.livedata.score.ScoringFragment"
+        android:label="ScoringFragment" >
+        <action
+            android:id="@+id/action_scoringFragment_to_finishFragment"
+            app:destination="@id/finishFragment" />
+        <argument
+            android:name="tim1"
+            app:argType="string" />
+        <argument
+            android:name="tim2"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="com.example.livedata.finish.FinishFragment"
+        android:label="FinishFragment" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+</navigation>
